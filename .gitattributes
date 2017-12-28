@@ -1,0 +1,7 @@
+# Source files
+# ============
+*.js      text
+*.yml     text
+
+# Binary files
+# ============
