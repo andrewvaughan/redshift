@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+    <complex>
+        <alpha>1</alpha>
+        <bravo>false</bravo>
+        <charlie>1</charlie>
+        <charlie>2</charlie>
+        <charlie>3</charlie>
+        <delta>
+            <alpha>1</alpha>
+            <bravo>2</bravo>
+        </delta>
+    </complex>
+</root>

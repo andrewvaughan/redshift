@@ -1,0 +1,11 @@
+---
+complex:
+    alpha: 1
+    bravo: False
+    charlie:
+        - 1
+        - 2
+        - 3
+    delta:
+        alpha: 1
+        bravo: 2

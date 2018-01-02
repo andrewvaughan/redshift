@@ -1,0 +1,13 @@
+{
+    "complex": {
+        "alpha": 1,
+        "bravo": false,
+        "charlie": [
+            1, 2, 3
+        ],
+        "delta": {
+            "alpha": 1,
+            "bravo": 2
+        }
+    }
+}
