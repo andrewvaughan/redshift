@@ -1,0 +1,58 @@
+{
+    "name"        : "redshift",
+    "description" : "A Multi-User Dungeon (MUD) game engine.",
+    "version"     : "0.1.0",
+
+    "author"      : "Andrew Vaughan <hello@andrewvaughan.io>",
+    "homepage"    : "https://github.com/andrewvaughan/redshift#readme",
+    "license"     : "SEE LICENSE IN LICENSE",
+
+    "repository"   : "https://github.com/andrewvaughan/redshift",
+    "contributors" : "https://github.com/andrewvaughan/redshift/contributors",
+    "bugs"         : "https://github.com/andrewvaughan/redshift/issues",
+
+    "keywords": [
+        "mud",
+        "game",
+        "multiplayer",
+        "telnet",
+        "engine"
+    ],
+
+    "engines": {
+        "node" : ">=6.11.0"
+    },
+
+    "scripts": {
+        "test"          : "gulp test",
+        "test:lint"     : "gulp lint",
+        "test:coverage" : "gulp coverage"
+    },
+
+    "dependencies": {
+        "ansi-escape-sequences" : "4.0.0",
+        "command-line-args"     : "4.0.7",
+        "command-line-usage"    : "4.0.2",
+        "js-yaml"               : "3.10.0",
+        "json-override"         : "0.2.0",
+        "xml2js"                : "0.4.19"
+    },
+
+    "devDependencies": {
+        "browser-sync"      : "2.23.1",
+        "eslint"            : "4.14.0",
+        "gulp"              : "3.9.1",
+        "gulp-eslint"       : "4.0.0",
+        "gulp-if"           : "2.0.2",
+        "gulp-istanbul"     : "1.1.2",
+        "gulp-jshint"       : "2.1.0",
+        "gulp-load-plugins" : "1.5.0",
+        "gulp-mocha"        : "3.0.1",
+        "istanbul"          : "0.4.5",
+        "jshint"            : "2.9.5",
+        "jshint-stylish"    : "2.2.1",
+        "mocha"             : "4.1.0",
+        "should"            : "13.2.0",
+        "tmp"               : "0.0.33"
+    }
+}

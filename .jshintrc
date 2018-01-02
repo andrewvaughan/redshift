@@ -1,0 +1,53 @@
+/**
+ * This rule file is driven by JSHint rules, which are defined here:
+ * {@link http://jshint.com/docs/options/}
+ */
+{
+
+    // Environment Configuration
+    "node"      : true,
+    "mocha"     : true,
+
+    // ECMAScript Version
+    "esversion" : 6,
+
+    // Options
+    "bitwise"       : true,       // Prevent bitwise operator usage, which are easy to mess up
+    "curly"         : true,       // Require curly braces on blocks
+    "eqeqeq"        : true,       // Prevent weak comparisons (force ===)
+    "forin"         : true,       // Force filtering out of inherited properties in for...in loops
+    "freeze"        : true,       // Prevent overriding naitive objects
+    "funcscope"     : false,      // Don't disable warnings about confusing variables set outside their scope
+    "futurehostile" : true,       // Show warnings if writing code that interferes with later JS and NodeJS versions
+    "iterator"      : true,       // Suppress warnings about the __iterator__ property, since we're not using a browser
+    "latedef"       : true,       // Force variables to be defined before use
+    "noarg"         : true,       // Prevent various calls to deprecated argument functions
+    "nocomma"       : true,       // Prevent use of the comma operator
+    "nonbsp"        : true,       // Prevent Mac users from entering non-breaking whitespace (option+space)
+    "nonew"         : true,       // Prevent the new keyword from being used without assignment
+    "notypeof"      : true,       // Prevent invalid typeof usage
+    "shadow"        : false,      // Prevent re-declaring variables later in scope
+    "singleGroups"  : true,       // Prevents use of the grouping operator () when it's not required
+    "strict"        : true,       // Enforce ES5 strict mode at function level
+    "undef"         : true,       // Do not allow undeclared variables
+    "unused"        : true,       // Warn on unused variables
+    "varstmt"       : true,       // Force user to use 'let' or 'const' instead of var with no assignment
+
+    // Maximums to prevent overly-complex code
+    "maxcomplexity" : 20,         // Cyclomatic complexity
+    "maxdepth"      : 3,          // Block nesting depth
+    "maxparams"     : 4,          // Parameters per function
+    "maxstatements" : 15,         // Statements per function
+
+    // Allowed globals
+    "globals": {
+        "mocha"  : true,
+        "should" : true
+    },
+
+    "predef": [
+        "mocha",
+        "should"
+    ]
+
+}
