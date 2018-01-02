@@ -1,0 +1,128 @@
+#!/usr/bin/env node
+'use strict';
+
+/* eslint no-process-exit: 0 */
+
+/**
+ * Redshift
+ *
+ * Launches a Redshift server to manage connections and game state.  Use the `-h` option for help.
+ */
+const ansi = require('ansi-escape-sequences'),
+    argparse = require('command-line-args'),
+    path = require('path'),
+    usage = require('command-line-usage');
+
+const pkg = require('./package.json'),
+    textAscii = require('./resources/ascii-title');
+
+const ConfigServer = require('./src/Data/ConfigServer'),
+    GameServer = require('./src/GameServer');
+
+
+const commandOptions = [
+    {
+        name        : 'help',
+        alias       : 'h',
+        type        : Boolean,
+        description : 'Prints usage guidelines and help.'
+    },
+    {
+        name        : 'debug',
+        alias       : 'd',
+        type        : Boolean,
+        description : 'Turn on debug logging for the console.'
+    },
+    {
+        name        : 'verbose',
+        alias       : 'v',
+        type        : Boolean,
+        description : 'Turn on verbose debug logging (implies --debug).'
+    },
+    {
+        name         : 'config',
+        alias        : 'c',
+        type         : String,
+        description  : 'Load a server configuration file',
+        typeLabel    : '[underline]{file}'
+    }
+];
+
+
+/**
+ * Prints usage instructions for this script.
+ */
+const printUsage = function printUsage() {
+
+    /* eslint no-console: 0 */
+    console.log(
+        usage([
+            {
+                content : ansi.format(textAscii, 'red'),
+                raw     : true
+            },
+            {
+                header  : `Redshift Server v${pkg.version}`,
+                content : [
+                    'Launches a Redshift MUD server.  For more information, visit:',
+                    'https://github.com/andrewvaughan/redshift'
+                ]
+            },
+            {
+                header  : 'Usage',
+                content : 'redshift [-dv] [-c config.yml]'
+            },
+            {
+                header     : 'Options',
+                optionList : commandOptions
+            }
+        ])
+    );
+
+};
+
+
+// Gather runtime arguments
+let runtimeArgs = null;
+
+try {
+
+    runtimeArgs = argparse(commandOptions);
+
+    if (runtimeArgs.help) {
+
+        throw Error('Print Usage');
+
+    }
+
+} catch (err) {
+
+    printUsage();
+    process.exit();
+
+}
+
+
+// Load server configuration
+const config = new ConfigServer(runtimeArgs.config || null);
+
+// Command line overrides
+if (runtimeArgs.debug) {
+
+    config.set('debug', true);
+
+}
+
+if (runtimeArgs.verbose) {
+
+    config.set('debug', true);
+    config.set('verbose', true);
+
+}
+
+// Launch the server
+const server = new GameServer(config);
+
+process.exit(
+    server.run()
+);
