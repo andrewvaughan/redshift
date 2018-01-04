@@ -1,5 +1,5 @@
 {
-    "name"        : "redshift",
+    "name"        : "redshift-engine",
     "description" : "A Multi-User Dungeon (MUD) game engine.",
     "version"     : "0.1.0",
 
