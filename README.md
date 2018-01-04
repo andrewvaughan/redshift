@@ -48,8 +48,8 @@ npm install redshift-engine
 ```
 
 Alternatively, and more recommended, you can add the latest version of the [redshift-engine][project-npm] module to
-your `package.json` file for your project.  Redshift can be configured, as explained [below](#Configuration), to
-automatically find and incorporate your custom modules for your game.
+your `package.json` file for your project.  Redshift can be configured, as explained [below](#usage), to automatically
+find and incorporate your custom modules for your game.
 
 ### Usage
 
