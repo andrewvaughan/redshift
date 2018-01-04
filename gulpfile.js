@@ -18,18 +18,18 @@ const plugin = require('gulp-load-plugins')();
  *
  * Tests for code quality and source standards.
  */
-gulp.task('jshint', function jshint() {
-
-    return gulp.src(allFiles)
-        .pipe(browserSync.reload({
-            stream : true,
-            once   : true
-        }))
-        .pipe(plugin.jshint())
-        .pipe(plugin.jshint.reporter('jshint-stylish'))
-        .pipe(plugin.if(!browserSync.active, plugin.jshint.reporter('fail')));
-
-});
+gulp.task('jshint', () => gulp.src(allFiles)
+    .pipe(browserSync.reload({
+        stream : true,
+        once   : true
+    }))
+    .pipe(plugin.jshint())
+    .pipe(plugin.jshint.reporter('jshint-stylish'))
+    .pipe(plugin.if(
+        !browserSync.active,
+        plugin.jshint.reporter('fail')
+    ))
+);
 
 
 /**
@@ -37,14 +37,11 @@ gulp.task('jshint', function jshint() {
  *
  * Tests for code style accuracy.
  */
-gulp.task('eslint', function eslint() {
-
-    return gulp.src(allFiles)
-        .pipe(plugin.eslint())
-        .pipe(plugin.eslint.format())
-        .pipe(plugin.eslint.failOnError());
-
-});
+gulp.task('eslint', () => gulp.src(allFiles)
+    .pipe(plugin.eslint())
+    .pipe(plugin.eslint.format())
+    .pipe(plugin.eslint.failOnError())
+);
 
 
 /**
@@ -52,11 +49,7 @@ gulp.task('eslint', function eslint() {
  *
  * Runs the linters.
  */
-gulp.task('lint', ['jshint', 'eslint'], function lint() {
-
-    return gulp.src(sourceFiles);
-
-});
+gulp.task('lint', ['jshint', 'eslint'], () => gulp.src(sourceFiles));
 
 
 /**
@@ -64,22 +57,19 @@ gulp.task('lint', ['jshint', 'eslint'], function lint() {
  *
  * Lints and tests all of the code.
  */
-gulp.task('test', ['lint'], function test() {
+gulp.task('test', ['lint'], () => gulp.src(testFiles)
+    .pipe(plugin.mocha())
+    .once('error', () => {
 
-    return gulp.src(testFiles)
-        .pipe(plugin.mocha())
-        .once('error', function onError() {
+        process.exit(1);
 
-            process.exit(1);
+    })
+    .once('end', () => {
 
-        })
-        .once('end', function onEnd() {
+        process.exit();
 
-            process.exit();
-
-        });
-
-});
+    })
+);
 
 
 /**
@@ -87,18 +77,15 @@ gulp.task('test', ['lint'], function test() {
  *
  * Sets up istanbul for watching tests.
  */
-gulp.task('setup-coverage', function setupCoverage() {
+gulp.task('setup-coverage', () => gulp.src(sourceFiles)
+    .pipe(plugin.istanbul({
 
-    return gulp.src(sourceFiles)
-        .pipe(plugin.istanbul({
+        includeUntested : true
 
-            includeUntested : true
-
-        }))
-        .pipe(plugin.istanbul.hookRequire())
-        .pipe(gulp.dest('coverage/'));
-
-});
+    }))
+    .pipe(plugin.istanbul.hookRequire())
+    .pipe(gulp.dest('coverage/'))
+);
 
 
 /**
@@ -106,23 +93,30 @@ gulp.task('setup-coverage', function setupCoverage() {
  *
  * Runs a coverage report for the tests.
  */
-gulp.task('coverage', ['setup-coverage'], function coverage() {
+gulp.task('coverage', ['setup-coverage'], () => gulp.src(testFiles)
+    .pipe(plugin.mocha())
+    .pipe(plugin.istanbul.writeReports())
+    .once('error', () => {
 
-    return gulp.src(testFiles)
-        .pipe(plugin.mocha())
-        .pipe(plugin.istanbul.writeReports())
-        .once('error', function onError() {
+        process.exit(1);
 
-            process.exit(1);
+    })
+    .once('end', () => {
 
-        })
-        .once('end', function onEnd() {
+        process.exit();
 
-            process.exit();
+    })
+);
 
-        });
 
-});
+/**
+ * Doc
+ *
+ * Generates JSDocs for the codebase.
+ */
+gulp.task('doc', () => gulp.src(sourceFiles, {read : false})
+    .pipe(plugin.jsdoc3())
+);
 
 
 /**
@@ -130,7 +124,7 @@ gulp.task('coverage', ['setup-coverage'], function coverage() {
  *
  * Outputs a markdown version of the changelog between the previous two tags.
  */
-gulp.task('changelog', function changelog() {
+gulp.task('changelog', () => {
 
     let tagString = '';
 
@@ -140,7 +134,7 @@ gulp.task('changelog', function changelog() {
      * @param {string} err the error
      * @param {string} stdout current output
      */
-    const printChangeLog = function printChangeLog(err, stdout) {
+    const printChangeLog = (err, stdout) => {
 
         if (err) {
 
@@ -159,7 +153,7 @@ gulp.task('changelog', function changelog() {
      * @param {string} err the error
      * @param {string} stdout current output
      */
-    const getPrevTag = function getPrevTag(err, stdout) {
+    const getPrevTag = (err, stdout) => {
 
         if (!err) {
 
@@ -179,7 +173,7 @@ gulp.task('changelog', function changelog() {
      * @param {string} err the error
      * @param {string} stdout current output
      */
-    const getLatestTag = function getLatestTag(err, stdout) {
+    const getLatestTag = (err, stdout) => {
 
         if (err) {
 
