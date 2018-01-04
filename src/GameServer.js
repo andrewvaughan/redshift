@@ -16,13 +16,15 @@ class GameServer {
     constructor(config) {
 
         // Create a server config if one is not provided
-        if (!config) {
+        if (config) {
 
-            config = new ConfigServer();
+            this.config = config;
+
+        } else {
+
+            this.config = new ConfigServer();
 
         }
-
-        this.config = config;
 
     }
 

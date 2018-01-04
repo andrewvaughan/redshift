@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint no-magic-numbers: 0 */
+
 /* jshint ignore:start */
 /* eslint-disable */
 const mocha = require('mocha'),
