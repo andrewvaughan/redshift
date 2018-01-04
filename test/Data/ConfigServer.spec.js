@@ -9,8 +9,8 @@ const mocha = require('mocha'),
 
 const path = require('path');
 
-const ConfigServer = require('../../src/Data/ConfigServer'),
-    Config = require('../../src/Data/Config');
+const Config = require('../../src/Data/Config'),
+    ConfigServer = require('../../src/Data/ConfigServer');
 
 
 describe('ConfigServer', () => {
@@ -34,12 +34,18 @@ describe('ConfigServer', () => {
     });
 
 
-    it('should load a configuration file if set', () => {
+    it('should load a configuration file, if set', (done) => {
 
-        const config = new ConfigServer(path.join(__dirname, '/resources/config.json'));
+        const config = new ConfigServer(
+            path.join(__dirname, '/resources/config.json'),
+            () => {
 
-        config.get('debug').should.be.true();
-        config.get('verbose').should.be.true();
+                config.get('debug').should.be.true();
+                config.get('verbose').should.be.true();
+                done();
+
+            }
+        );
 
     });
 

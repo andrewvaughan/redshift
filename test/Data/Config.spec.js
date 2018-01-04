@@ -33,12 +33,18 @@ describe('Config', () => {
     });
 
 
-    it('should load a configuration file if set', () => {
+    it('should load a configuration file if set', (done) => {
 
-        const config = new Config(path.join(__dirname, '/resources/config.json'));
+        const config = new Config(
+            path.join(__dirname, '/resources/config.json'),
+            () => {
 
-        config.get('debug').should.be.true();
-        config.get('verbose').should.be.true();
+                config.get('debug').should.be.true();
+                config.get('verbose').should.be.true();
+                done();
+
+            }
+        );
 
     });
 

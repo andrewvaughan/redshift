@@ -13,8 +13,9 @@ class ConfigServer extends Config {
      * the Redshift server.
      *
      * @param {string} file the configuration file to load (optional)
+     * @param {string} callback method to call after the configuration file has been loaded (optional)
      */
-    constructor(file) {
+    constructor(file, callback) {
 
         super();
 
@@ -24,7 +25,7 @@ class ConfigServer extends Config {
 
         if (file) {
 
-            this.loadSync(file);
+            this.load(file, callback);
 
         }
 

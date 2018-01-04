@@ -10,7 +10,6 @@
  */
 const ansi = require('ansi-escape-sequences'),
     argparse = require('command-line-args'),
-    path = require('path'),
     usage = require('command-line-usage');
 
 const pkg = require('./package.json'),
@@ -40,11 +39,11 @@ const commandOptions = [
         description : 'Turn on verbose debug logging (implies --debug).'
     },
     {
-        name         : 'config',
-        alias        : 'c',
-        type         : String,
-        description  : 'Load a server configuration file',
-        typeLabel    : '[underline]{file}'
+        name        : 'config',
+        alias       : 'c',
+        type        : String,
+        description : 'Load a server configuration file',
+        typeLabel   : '[underline]{file}'
     }
 ];
 

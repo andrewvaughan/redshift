@@ -12,14 +12,15 @@ class Config extends DataAbstract {
      * Creates a configuration file and, optionally, loads a file into the config.
      *
      * @param {string} file the configuration file to load (optional)
+     * @param {string} callback method to call after the configuration file has been loaded (optional)
      */
-    constructor(file) {
+    constructor(file, callback) {
 
         super();
 
         if (file) {
 
-            this.loadSync(file);
+            this.load(file, callback);
 
         }
 
