@@ -15,20 +15,25 @@
     <a href="https://github.com/andrewvaughan/redshift/blob/master/LICENSE" target="_blank">
         <img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="MIT License" />
     </a>
+    <a href="https://discord.gg/QJgj8fP" target="_blank">
+        <img src="http://img.shields.io/badge/discord-chat%20now-orange.svg?style=flat" alt="Chat on Discord" />
+    </a>
+</p>
+<p align="center">
     <a href="https://travis-ci.org/andrewvaughan/redshift" target="_blank">
         <img src="https://travis-ci.org/andrewvaughan/redshift.svg?branch=master" alt="Build Status" />
     </a>
     <a href="https://coveralls.io/github/andrewvaughan/redshift?branch=master" target="_blank">
         <img src="https://coveralls.io/repos/github/andrewvaughan/redshift/badge.svg?branch=master" alt="Coverage Status" />
     </a>
+    <a href="https://inch-ci.org/github/andrewvaughan/redshift" target="_blank">
+        <img src="https://inch-ci.org/github/andrewvaughan/redshift.svg?branch=master" alt="Documentation Status" />
+    </a>
     <a href="https://david-dm.org/andrevaughan/redshift/" target="_blank">
         <img src="https://david-dm.org/andrewvaughan/redshift/status.svg" alt="Dependency Status" />
     </a>
     <a href="https://david-dm.org/andrevaughan/redshift/?type=dev" target="_blank">
         <img src="https://david-dm.org/andrewvaughan/redshift/dev-status.svg" alt="Developer Dependency Status" />
-    </a>
-    <a href="https://discord.gg/QJgj8fP" target="_blank">
-        <img src="http://img.shields.io/badge/discord-chat%20now-orange.svg?style=flat" alt="Chat on Discord" />
     </a>
 </p>
 
