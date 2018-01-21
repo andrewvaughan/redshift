@@ -1,8 +1,26 @@
-# Contributing
+# Contributing Guidelines
 
 Redshift would not exist without its contributors, and we welcome you to join us in our endeavor. This guide is
 intended for anyone who wants to contribute to [Redshift][project-url]. Please read this document carefully before
 contributing, as it answers many of the questions that new contributors have when first working with our projects.
+
+## Code of Conduct
+
+All members contributing to the Redshift project, sub-projects, or work in any way with the Redshift community, are
+held accountable to the Redshift Code of Conduct, which is located at this address:
+
+https://github.com/andrewvaughan/redshift/blob/master/CODE_OF_CONDUCT.md
+
+All staff members, volunteers, and contributors are accountable for these guidelines, regardless of whether they have
+been read or presented.  Project staff will make all reasonable attempts to provide this documentation to all members
+through formal documentation, announcements, regular updates, et. al.
+
+Before contributing in any way, whether in a tangible contribution, discussions, questions, feedback, collaboration,
+or support, you are expected to read and understand these Contributing Guidelines as well as the Code of Conduct
+before you start.  If any portion of these documents is unclear, or you have questions or concerns about the nature of
+their intent, please reach out to staff on the [Redshift Discord #help Channel][discord-help].  If your concern is
+private in nature, please request for a private channel to be made; do not reach out to staff members directly, or you
+may not get a response.
 
 ## Agreement
 
@@ -185,3 +203,5 @@ submitted code, and to resubmit your request according to the new guidelines.
 
 [squash-support]: http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
 [pull-support]:   https://help.github.com/articles/creating-a-pull-request
+
+[discord-help]:   https://discord.gg/x8XBVSB
