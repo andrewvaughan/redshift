@@ -33,7 +33,7 @@
         "ansi-escape-sequences" : "4.0.0",
         "command-line-args"     : "4.0.7",
         "command-line-usage"    : "4.0.2",
-        "js-yaml"               : "3.10.0",
+        "js-yaml"               : "3.14.0",
         "json-override"         : "0.2.0",
         "xml2js"                : "0.4.19"
     },
